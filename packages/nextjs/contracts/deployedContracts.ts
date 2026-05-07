@@ -7,7 +7,7 @@ import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 const deployedContracts = {
   31337: {
     GradesManager: {
-      address: "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+      address: "0xc5a5C42992dECbae36851359345FE25997F5C42d",
       abi: [
         {
           inputs: [],
@@ -104,24 +104,13 @@ const deployedContracts = {
         },
       ],
       inheritedFunctions: {},
-      deployedOnBlock: 1,
+      deployedOnBlock: 29,
     },
-    OnlinePoll: {
-      address: "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
+    TodoList: {
+      address: "0xE6E340D132b5f46d1e472DebcD681B2aBc16e57E",
       abi: [
         {
-          inputs: [
-            {
-              internalType: "string",
-              name: "_question",
-              type: "string",
-            },
-            {
-              internalType: "string[]",
-              name: "_options",
-              type: "string[]",
-            },
-          ],
+          inputs: [],
           stateMutability: "nonpayable",
           type: "constructor",
         },
@@ -130,73 +119,91 @@ const deployedContracts = {
           inputs: [
             {
               indexed: true,
-              internalType: "address",
-              name: "voter",
-              type: "address",
-            },
-            {
-              indexed: true,
               internalType: "uint256",
-              name: "optionIndex",
+              name: "taskIndex",
               type: "uint256",
             },
+            {
+              indexed: false,
+              internalType: "string",
+              name: "text",
+              type: "string",
+            },
           ],
-          name: "Voted",
+          name: "TaskAdded",
           type: "event",
         },
         {
-          inputs: [],
-          name: "getOptions",
-          outputs: [
+          anonymous: false,
+          inputs: [
             {
-              internalType: "string[]",
-              name: "",
-              type: "string[]",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "getOptionsCount",
-          outputs: [
-            {
+              indexed: true,
               internalType: "uint256",
-              name: "",
+              name: "taskIndex",
               type: "uint256",
             },
           ],
-          stateMutability: "view",
-          type: "function",
+          name: "TaskCompleted",
+          type: "event",
         },
         {
-          inputs: [],
-          name: "getTotalVotes",
-          outputs: [
+          inputs: [
             {
-              internalType: "uint256",
-              name: "total",
-              type: "uint256",
+              internalType: "string",
+              name: "_text",
+              type: "string",
             },
           ],
-          stateMutability: "view",
+          name: "addTask",
+          outputs: [],
+          stateMutability: "nonpayable",
           type: "function",
         },
         {
           inputs: [
             {
-              internalType: "address",
-              name: "",
-              type: "address",
+              internalType: "uint256",
+              name: "taskIndex",
+              type: "uint256",
             },
           ],
-          name: "hasVoted",
+          name: "completeTask",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "taskIndex",
+              type: "uint256",
+            },
+          ],
+          name: "getTask",
           outputs: [
             {
+              internalType: "string",
+              name: "text",
+              type: "string",
+            },
+            {
               internalType: "bool",
-              name: "",
+              name: "completed",
               type: "bool",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "getTasksCount",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
             },
           ],
           stateMutability: "view",
@@ -215,57 +222,12 @@ const deployedContracts = {
           stateMutability: "view",
           type: "function",
         },
-        {
-          inputs: [],
-          name: "question",
-          outputs: [
-            {
-              internalType: "string",
-              name: "",
-              type: "string",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "uint256",
-              name: "optionIndex",
-              type: "uint256",
-            },
-          ],
-          name: "vote",
-          outputs: [],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-          ],
-          name: "votes",
-          outputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
       ],
       inheritedFunctions: {},
-      deployedOnBlock: 4,
+      deployedOnBlock: 32,
     },
     YourContract: {
-      address: "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+      address: "0x67d269191c92Caf3cD7723F116c85e6E9bf55933",
       abi: [
         {
           inputs: [
@@ -406,7 +368,7 @@ const deployedContracts = {
         },
       ],
       inheritedFunctions: {},
-      deployedOnBlock: 2,
+      deployedOnBlock: 30,
     },
   },
 } as const;
